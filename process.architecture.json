@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {"title": "Archify の分担：考えるのは AI、描くのはプログラム", "quality_profile": "showcase", "legend": {"mode": "hidden"}},
+  "components": [
+    {"id": "request", "type": "external", "label": "あなたのお願い", "sublabel": "説明・コード・Mermaid", "pos": [60, 40], "size": [190, 90]},
+    {"id": "agent", "type": "backend", "label": "AI が整理する", "sublabel": "何を図にするか考える", "pos": [390, 40], "size": [190, 90]},
+    {"id": "spec", "type": "database", "label": "JSON の設計図", "sublabel": "部品・接続・配置を記録", "pos": [720, 40], "size": [190, 90]},
+    {"id": "skill", "type": "external", "label": "Skill の手順書", "sublabel": "AI に作り方を教える", "pos": [390, 200], "size": [190, 90]},
+    {"id": "compiler", "type": "backend", "label": "検査して描く", "sublabel": "Node.js のプログラム", "pos": [720, 200], "size": [190, 90]},
+    {"id": "html", "type": "frontend", "label": "完成した HTML", "sublabel": "図と操作機能をひとまとめ", "pos": [720, 360], "size": [190, 90]},
+    {"id": "browser", "type": "frontend", "label": "ブラウザで見る", "sublabel": "完成品の閲覧に AI は不要", "pos": [390, 360], "size": [190, 90]}
+  ],
+  "connections": [
+    {"from": "request", "to": "agent", "label": "依頼", "variant": "emphasis"},
+    {"from": "agent", "to": "spec", "label": "書き出す", "variant": "emphasis"},
+    {"from": "skill", "to": "agent", "label": "手順を指示"},
+    {"from": "spec", "to": "compiler", "label": "読み込む", "variant": "emphasis", "labelDy": 48},
+    {"from": "compiler", "to": "html", "label": "生成", "variant": "emphasis", "labelDy": 48},
+    {"from": "html", "to": "browser", "label": "開く", "variant": "emphasis"}
+  ]
+}
